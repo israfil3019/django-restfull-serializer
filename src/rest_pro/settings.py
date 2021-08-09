@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'fscohort_api',
 
     #third party
-    
+    'rest_framework',    
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
