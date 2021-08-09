@@ -16,3 +16,12 @@ class StudentDefaultSerializer(serializers.Serializer):
         instance.number = validated_data.get('number', instance.number)
         instance.save()
         return instance
+
+    def validate(self,data):  # object level
+        if data['first_name'] == data['last_name']:
+            raise serializers.ValidationError("first name and last name must be different !")
+        
+    def validate_first_name(self, value):  # field level
+        if len(value) < 3:
+            raise serializers.ValidationError("name sould be more then 3 char !")
+        return value
